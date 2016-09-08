@@ -1,0 +1,333 @@
+Created by PLY version 3.6 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> html
+Rule 1     html -> element html
+Rule 2     html -> <empty>
+Rule 3     element -> WORD
+Rule 4     element -> EQUAL
+Rule 5     element -> STRING
+Rule 6     tagname -> WORD
+Rule 7     tagnameend -> WORD
+Rule 8     element -> LANGLE tagname tag_arguments SLASHRANGLE
+Rule 9     element -> LANGLE tagname tag_arguments RANGLE html LANGLESLASH tagnameend RANGLE
+Rule 10    tag_arguments -> tag_argument tag_arguments
+Rule 11    tag_arguments -> <empty>
+Rule 12    tag_argument -> WORD EQUAL WORD
+Rule 13    tag_argument -> WORD EQUAL STRING
+Rule 14    element -> JAVASCRIPT
+
+Terminals, with rules where they appear
+
+EQUAL                : 4 12 13
+JAVASCRIPT           : 14
+LANGLE               : 8 9
+LANGLESLASH          : 9
+RANGLE               : 9 9
+SLASHRANGLE          : 8
+STRING               : 5 13
+WORD                 : 3 6 7 12 12 13
+error                : 
+
+Nonterminals, with rules where they appear
+
+element              : 1
+html                 : 1 9 0
+tag_argument         : 10
+tag_arguments        : 8 9 10
+tagname              : 8 9
+tagnameend           : 9
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . html
+    (1) html -> . element html
+    (2) html -> .
+    (3) element -> . WORD
+    (4) element -> . EQUAL
+    (5) element -> . STRING
+    (8) element -> . LANGLE tagname tag_arguments SLASHRANGLE
+    (9) element -> . LANGLE tagname tag_arguments RANGLE html LANGLESLASH tagnameend RANGLE
+    (14) element -> . JAVASCRIPT
+
+    $end            reduce using rule 2 (html -> .)
+    WORD            shift and go to state 4
+    EQUAL           shift and go to state 1
+    STRING          shift and go to state 6
+    LANGLE          shift and go to state 3
+    JAVASCRIPT      shift and go to state 7
+
+    html                           shift and go to state 2
+    element                        shift and go to state 5
+
+state 1
+
+    (4) element -> EQUAL .
+
+    WORD            reduce using rule 4 (element -> EQUAL .)
+    EQUAL           reduce using rule 4 (element -> EQUAL .)
+    STRING          reduce using rule 4 (element -> EQUAL .)
+    LANGLE          reduce using rule 4 (element -> EQUAL .)
+    JAVASCRIPT      reduce using rule 4 (element -> EQUAL .)
+    $end            reduce using rule 4 (element -> EQUAL .)
+    LANGLESLASH     reduce using rule 4 (element -> EQUAL .)
+
+
+state 2
+
+    (0) S' -> html .
+
+
+
+state 3
+
+    (8) element -> LANGLE . tagname tag_arguments SLASHRANGLE
+    (9) element -> LANGLE . tagname tag_arguments RANGLE html LANGLESLASH tagnameend RANGLE
+    (6) tagname -> . WORD
+
+    WORD            shift and go to state 8
+
+    tagname                        shift and go to state 9
+
+state 4
+
+    (3) element -> WORD .
+
+    WORD            reduce using rule 3 (element -> WORD .)
+    EQUAL           reduce using rule 3 (element -> WORD .)
+    STRING          reduce using rule 3 (element -> WORD .)
+    LANGLE          reduce using rule 3 (element -> WORD .)
+    JAVASCRIPT      reduce using rule 3 (element -> WORD .)
+    $end            reduce using rule 3 (element -> WORD .)
+    LANGLESLASH     reduce using rule 3 (element -> WORD .)
+
+
+state 5
+
+    (1) html -> element . html
+    (1) html -> . element html
+    (2) html -> .
+    (3) element -> . WORD
+    (4) element -> . EQUAL
+    (5) element -> . STRING
+    (8) element -> . LANGLE tagname tag_arguments SLASHRANGLE
+    (9) element -> . LANGLE tagname tag_arguments RANGLE html LANGLESLASH tagnameend RANGLE
+    (14) element -> . JAVASCRIPT
+
+    $end            reduce using rule 2 (html -> .)
+    LANGLESLASH     reduce using rule 2 (html -> .)
+    WORD            shift and go to state 4
+    EQUAL           shift and go to state 1
+    STRING          shift and go to state 6
+    LANGLE          shift and go to state 3
+    JAVASCRIPT      shift and go to state 7
+
+    html                           shift and go to state 10
+    element                        shift and go to state 5
+
+state 6
+
+    (5) element -> STRING .
+
+    WORD            reduce using rule 5 (element -> STRING .)
+    EQUAL           reduce using rule 5 (element -> STRING .)
+    STRING          reduce using rule 5 (element -> STRING .)
+    LANGLE          reduce using rule 5 (element -> STRING .)
+    JAVASCRIPT      reduce using rule 5 (element -> STRING .)
+    $end            reduce using rule 5 (element -> STRING .)
+    LANGLESLASH     reduce using rule 5 (element -> STRING .)
+
+
+state 7
+
+    (14) element -> JAVASCRIPT .
+
+    WORD            reduce using rule 14 (element -> JAVASCRIPT .)
+    EQUAL           reduce using rule 14 (element -> JAVASCRIPT .)
+    STRING          reduce using rule 14 (element -> JAVASCRIPT .)
+    LANGLE          reduce using rule 14 (element -> JAVASCRIPT .)
+    JAVASCRIPT      reduce using rule 14 (element -> JAVASCRIPT .)
+    $end            reduce using rule 14 (element -> JAVASCRIPT .)
+    LANGLESLASH     reduce using rule 14 (element -> JAVASCRIPT .)
+
+
+state 8
+
+    (6) tagname -> WORD .
+
+    WORD            reduce using rule 6 (tagname -> WORD .)
+    SLASHRANGLE     reduce using rule 6 (tagname -> WORD .)
+    RANGLE          reduce using rule 6 (tagname -> WORD .)
+
+
+state 9
+
+    (8) element -> LANGLE tagname . tag_arguments SLASHRANGLE
+    (9) element -> LANGLE tagname . tag_arguments RANGLE html LANGLESLASH tagnameend RANGLE
+    (10) tag_arguments -> . tag_argument tag_arguments
+    (11) tag_arguments -> .
+    (12) tag_argument -> . WORD EQUAL WORD
+    (13) tag_argument -> . WORD EQUAL STRING
+
+    SLASHRANGLE     reduce using rule 11 (tag_arguments -> .)
+    RANGLE          reduce using rule 11 (tag_arguments -> .)
+    WORD            shift and go to state 13
+
+    tag_argument                   shift and go to state 12
+    tag_arguments                  shift and go to state 11
+
+state 10
+
+    (1) html -> element html .
+
+    LANGLESLASH     reduce using rule 1 (html -> element html .)
+    $end            reduce using rule 1 (html -> element html .)
+
+
+state 11
+
+    (8) element -> LANGLE tagname tag_arguments . SLASHRANGLE
+    (9) element -> LANGLE tagname tag_arguments . RANGLE html LANGLESLASH tagnameend RANGLE
+
+    SLASHRANGLE     shift and go to state 15
+    RANGLE          shift and go to state 14
+
+
+state 12
+
+    (10) tag_arguments -> tag_argument . tag_arguments
+    (10) tag_arguments -> . tag_argument tag_arguments
+    (11) tag_arguments -> .
+    (12) tag_argument -> . WORD EQUAL WORD
+    (13) tag_argument -> . WORD EQUAL STRING
+
+    SLASHRANGLE     reduce using rule 11 (tag_arguments -> .)
+    RANGLE          reduce using rule 11 (tag_arguments -> .)
+    WORD            shift and go to state 13
+
+    tag_argument                   shift and go to state 12
+    tag_arguments                  shift and go to state 16
+
+state 13
+
+    (12) tag_argument -> WORD . EQUAL WORD
+    (13) tag_argument -> WORD . EQUAL STRING
+
+    EQUAL           shift and go to state 17
+
+
+state 14
+
+    (9) element -> LANGLE tagname tag_arguments RANGLE . html LANGLESLASH tagnameend RANGLE
+    (1) html -> . element html
+    (2) html -> .
+    (3) element -> . WORD
+    (4) element -> . EQUAL
+    (5) element -> . STRING
+    (8) element -> . LANGLE tagname tag_arguments SLASHRANGLE
+    (9) element -> . LANGLE tagname tag_arguments RANGLE html LANGLESLASH tagnameend RANGLE
+    (14) element -> . JAVASCRIPT
+
+    LANGLESLASH     reduce using rule 2 (html -> .)
+    WORD            shift and go to state 4
+    EQUAL           shift and go to state 1
+    STRING          shift and go to state 6
+    LANGLE          shift and go to state 3
+    JAVASCRIPT      shift and go to state 7
+
+    html                           shift and go to state 18
+    element                        shift and go to state 5
+
+state 15
+
+    (8) element -> LANGLE tagname tag_arguments SLASHRANGLE .
+
+    WORD            reduce using rule 8 (element -> LANGLE tagname tag_arguments SLASHRANGLE .)
+    EQUAL           reduce using rule 8 (element -> LANGLE tagname tag_arguments SLASHRANGLE .)
+    STRING          reduce using rule 8 (element -> LANGLE tagname tag_arguments SLASHRANGLE .)
+    LANGLE          reduce using rule 8 (element -> LANGLE tagname tag_arguments SLASHRANGLE .)
+    JAVASCRIPT      reduce using rule 8 (element -> LANGLE tagname tag_arguments SLASHRANGLE .)
+    $end            reduce using rule 8 (element -> LANGLE tagname tag_arguments SLASHRANGLE .)
+    LANGLESLASH     reduce using rule 8 (element -> LANGLE tagname tag_arguments SLASHRANGLE .)
+
+
+state 16
+
+    (10) tag_arguments -> tag_argument tag_arguments .
+
+    SLASHRANGLE     reduce using rule 10 (tag_arguments -> tag_argument tag_arguments .)
+    RANGLE          reduce using rule 10 (tag_arguments -> tag_argument tag_arguments .)
+
+
+state 17
+
+    (12) tag_argument -> WORD EQUAL . WORD
+    (13) tag_argument -> WORD EQUAL . STRING
+
+    WORD            shift and go to state 19
+    STRING          shift and go to state 20
+
+
+state 18
+
+    (9) element -> LANGLE tagname tag_arguments RANGLE html . LANGLESLASH tagnameend RANGLE
+
+    LANGLESLASH     shift and go to state 21
+
+
+state 19
+
+    (12) tag_argument -> WORD EQUAL WORD .
+
+    WORD            reduce using rule 12 (tag_argument -> WORD EQUAL WORD .)
+    SLASHRANGLE     reduce using rule 12 (tag_argument -> WORD EQUAL WORD .)
+    RANGLE          reduce using rule 12 (tag_argument -> WORD EQUAL WORD .)
+
+
+state 20
+
+    (13) tag_argument -> WORD EQUAL STRING .
+
+    WORD            reduce using rule 13 (tag_argument -> WORD EQUAL STRING .)
+    SLASHRANGLE     reduce using rule 13 (tag_argument -> WORD EQUAL STRING .)
+    RANGLE          reduce using rule 13 (tag_argument -> WORD EQUAL STRING .)
+
+
+state 21
+
+    (9) element -> LANGLE tagname tag_arguments RANGLE html LANGLESLASH . tagnameend RANGLE
+    (7) tagnameend -> . WORD
+
+    WORD            shift and go to state 23
+
+    tagnameend                     shift and go to state 22
+
+state 22
+
+    (9) element -> LANGLE tagname tag_arguments RANGLE html LANGLESLASH tagnameend . RANGLE
+
+    RANGLE          shift and go to state 24
+
+
+state 23
+
+    (7) tagnameend -> WORD .
+
+    RANGLE          reduce using rule 7 (tagnameend -> WORD .)
+
+
+state 24
+
+    (9) element -> LANGLE tagname tag_arguments RANGLE html LANGLESLASH tagnameend RANGLE .
+
+    WORD            reduce using rule 9 (element -> LANGLE tagname tag_arguments RANGLE html LANGLESLASH tagnameend RANGLE .)
+    EQUAL           reduce using rule 9 (element -> LANGLE tagname tag_arguments RANGLE html LANGLESLASH tagnameend RANGLE .)
+    STRING          reduce using rule 9 (element -> LANGLE tagname tag_arguments RANGLE html LANGLESLASH tagnameend RANGLE .)
+    LANGLE          reduce using rule 9 (element -> LANGLE tagname tag_arguments RANGLE html LANGLESLASH tagnameend RANGLE .)
+    JAVASCRIPT      reduce using rule 9 (element -> LANGLE tagname tag_arguments RANGLE html LANGLESLASH tagnameend RANGLE .)
+    $end            reduce using rule 9 (element -> LANGLE tagname tag_arguments RANGLE html LANGLESLASH tagnameend RANGLE .)
+    LANGLESLASH     reduce using rule 9 (element -> LANGLE tagname tag_arguments RANGLE html LANGLESLASH tagnameend RANGLE .)
+

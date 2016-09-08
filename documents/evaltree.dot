@@ -1,0 +1,44 @@
+digraph g {
+    node[shape="plaintext", height=.1];
+    node0[label = "exp"];
+
+    node1[label = "exp"];
+    node2[label = "*"];
+    node3[label = "exp"];
+
+    node4[label = "("];
+    node5[label = "exp"];
+    node6[label = ")"];
+    node7[label = "NUM", color="red"];
+
+    node8[label = "exp"];
+    node9[label = "+"];
+    node10[label = "exp"];
+
+    node11[label = "NUM"];
+    node12[label = "NUM"];
+
+
+
+    "node0" -> "node1";
+    "node0" -> "node2";
+    "node0" -> "node3";
+
+    "node1" -> "node4";
+    "node1" -> "node5";
+    "node1" -> "node6";
+
+    "node3" -> "node7";
+
+    "node5" -> "node8";
+    "node5" -> "node9";
+    "node5" -> "node10";
+
+    "node7" -> "3";
+
+    "node8" -> "node11";
+    "node10" -> "node12";
+
+    "node11" -> "20";
+    "node12" -> "24";
+}
