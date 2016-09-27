@@ -1,3 +1,4 @@
+#coding:utf-8
 webpage = """
 <html>
 <h1>JavaScript That Produces HTML</h1>

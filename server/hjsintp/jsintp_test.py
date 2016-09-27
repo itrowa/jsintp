@@ -1,3 +1,4 @@
+#coding:utf-8
 from jsintp import *
 
 test_tree1 = ("binop",("number","5"),"+",("number","8"))

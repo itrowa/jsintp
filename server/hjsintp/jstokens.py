@@ -1,4 +1,4 @@
-
+#coding:utf-8
 # 根据ply.lex的要求定义javascript的tokens.
 # 用于为ply.lex构件一个token分析器.
 

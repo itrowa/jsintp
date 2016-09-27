@@ -1,3 +1,4 @@
+#coding:utf-8
 # the HTML interpreter.
 # only handles a subset of html.
 

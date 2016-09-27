@@ -1,3 +1,4 @@
+#coding:utf-8
 # Define a lexer for HTML with embedded Javascript fragments.
 
 import ply.lex as lex

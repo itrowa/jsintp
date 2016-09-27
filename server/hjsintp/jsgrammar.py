@@ -1,3 +1,4 @@
+#coding:utf-8
 # Wes Weimer
 #
 # This is a grammar definition file for a simple subset of JavaScript

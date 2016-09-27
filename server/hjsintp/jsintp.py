@@ -1,3 +1,4 @@
+#coding:utf-8
 # javascript interpreter
 
 # "内置函数"定义, 用于测试.

@@ -1,3 +1,4 @@
+#coding:utf-8
 import ply.lex as lex
 import htmltokens             # 导入html 的lex定义
 
