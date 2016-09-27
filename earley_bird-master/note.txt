@@ -1,3 +1,0 @@
-charts: 一个earley表格。
-
-chart row: 一个earley state/earley item.
